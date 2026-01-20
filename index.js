@@ -12,7 +12,7 @@
  * sumDouble(5, 5); // 20
  */
 export function sumDouble(num1, num2) {
-  /* TODO */
+  return num1 === num2 ? 2 * (num1 + num2) : num1 + num2;
 }
 
 /**
@@ -28,7 +28,7 @@ export function sumDouble(num1, num2) {
  * makes10(4, 4); // false
  */
 export function makes10(num1, num2) {
-  /* TODO */
+  return num1 === 10 || num2 === 10 || num1 + num2 === 10;
 }
 
 /**
@@ -46,7 +46,7 @@ export function makes10(num1, num2) {
  * near100(105, 10); // true
  */
 export function near100(n, distance) {
-  /* TODO */
+  return n >= 100 - Math.abs(distance) && n <= 100 + Math.abs(distance);
 }
 
 /**
@@ -63,7 +63,7 @@ export function near100(n, distance) {
  * isMultiple35(7); // false
  */
 export function isMultiple35(n) {
-  /* TODO */
+  return n % 3 === 0 || n % 5 === 0;
 }
 
 /**
@@ -81,7 +81,10 @@ export function isMultiple35(n) {
  * shareLastDigit(10, 21); // false
  */
 export function shareLastDigit(num1, num2) {
-  /* TODO */
+  const strNum1 = `${num1}`,
+    strNum2 = `${num2}`;
+
+  return strNum1[strNum1.length - 1] === strNum2[strNum2.length - 1];
 }
 
 /**
@@ -98,7 +101,7 @@ export function shareLastDigit(num1, num2) {
  * isColdAndHot(10, 50); // false
  */
 export function isColdAndHot(temp1, temp2) {
-  /* TODO */
+  return (temp1 < 0 && temp2 > 100) || (temp2 < 0 && temp1 > 100);
 }
 
 /**
@@ -114,7 +117,7 @@ export function isColdAndHot(temp1, temp2) {
  * makeABBA("a", "b"); // "abba"
  */
 export function makeABBA(A, B) {
-  /* TODO */
+  return A + B + B + A;
 }
 
 /**
@@ -135,7 +138,7 @@ export function makeABBA(A, B) {
  * makeSLS("a", "abc"); // "aabca"
  */
 export function makeSLS(str1, str2) {
-  /* TODO */
+  return str1.length < str2.length ? str1 + str2 + str1 : str2 + str1 + str2;
 }
 
 /**
@@ -156,7 +159,7 @@ export function makeSLS(str1, str2) {
  * canEnterClub(5, 5); // 1
  */
 export function canEnterClub(you, date) {
-  /* TODO */
+  return you <= 2 || date <= 2 ? 0 : you >= 8 || date >= 8 ? 2 : 1;
 }
 
 /**
@@ -177,5 +180,14 @@ export function canEnterClub(you, date) {
  * shouldAnswerPhone(true, true, false); // true
  */
 export function shouldAnswerPhone(isMorning, isBoss, isAsleep) {
-  /* TODO */
+  let willAnswer = true;
+  willAnswer = isAsleep
+    ? false
+    : isMorning && isBoss
+      ? true
+      : isMorning && !isBoss
+        ? false
+        : true;
+
+  return willAnswer;
 }
